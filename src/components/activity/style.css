@@ -5,6 +5,8 @@
     padding: 1rem;
 }
 
-input {
+.textArea {
+    resize: none;
+    width: 100%;
     border-color: rgb(255, 0, 85);
 }

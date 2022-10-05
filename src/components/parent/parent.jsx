@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Child from "../child/child";
 
 function Parent() {
-  const updateParent = () => {};
+  const [quote, setQuote] = useState("I need to be uptaded from my child");
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://programming-quotes-api.herokuapp.com/quotes/random"
+    );
+    const response = await data.json();
+    setQuote(response.en);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <div class="card">
+      <div className="card">
         <p>Parent</p>
-        <input class="input" value="I need to be uptaded from my child" />
+        <textarea className="textArea" value={quote} />
       </div>
-      <Child updateParent={updateParent} />
+      <Child updateParent={fetchData} />
     </div>
   );
 }

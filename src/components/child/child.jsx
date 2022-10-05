@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 function Child({ updateParent }) {
   return (
-    <div class="card">
+    <div className="card">
       <p>Child</p>
       <button
-        class="button"
+        className="button"
         onClick={() => {
           updateParent();
         }}
